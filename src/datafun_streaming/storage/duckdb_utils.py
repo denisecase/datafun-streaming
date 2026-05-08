@@ -45,16 +45,6 @@ _DUCKDB_TYPE_MAP: dict[type, str] = {
     bool: "BOOLEAN",
 }
 
-# === DECLARE SQL-SAFE TABLE NAMES ===
-
-_ALLOWED_TABLE_NAMES: frozenset[str] = frozenset(
-    {
-        "valid_table",
-        "rejected_table",
-    }
-)
-
-
 # === DEFINE FUNCTIONS ===
 
 

@@ -13,6 +13,25 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.3.0] - 2026-05-08
+
+### Added
+
+- `datafun_streaming.storage.duckdb_sql` - pure SQL string builder functions
+  (`build_create_table_sql`, `build_clear_table_sql`, `build_insert_sql`)
+  with no database connection required, fully testable in isolation
+- Tests for all three SQL builder functions in `tests/test_duckdb_sql.py`
+
+### Changed
+
+- `upsert_row` now requires caller-supplied `allowed_tables: frozenset[str]`
+  parameter - removes the module-level placeholder allowlist and gives
+  callers full control over which tables are permitted
+- Removed `_ALLOWED_TABLE_NAMES` placeholder constant from `duckdb_utils.py`
+- pytest `minversion` updated to `9.0`
+
+---
+
 ## [0.2.0] - 2026-05-08
 
 ### Changed
@@ -109,7 +128,8 @@ git push origin :refs/tags/vX.Z.Y
 
 ## Links
 
-[Unreleased]: https://github.com/denisecase/datafun-streaming/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/denisecase/datafun-streaming/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.3.0
 [0.2.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.2.0
 [0.1.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.1.0
 

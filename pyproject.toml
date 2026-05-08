@@ -110,7 +110,7 @@ reportCallIssue = "none"
 
 [tool.pytest.ini_options]
 # WHY: Consistent test discovery and coverage visibility.
-minversion = "7.0"
+minversion = "9.0"
 testpaths = ["tests"]
 addopts = "--cov=datafun_streaming --cov-report=term-missing --cov-fail-under=50"
 
@@ -226,5 +226,5 @@ packages = ["src/datafun_streaming"]  # REQ.PACKAGES: Discovery rooted at src/.
 [tool.hatch.version]
 # WHY: Version derived from git tags at build time, no manual source file edits.
 source = "vcs"
-fallback-version = "0.2.0"              # Used when no git tags present (fresh clone, CI).
+fallback-version = "0.3.0"              # Used when no git tags present (fresh clone, CI).
 tag-pattern = "^(?:v)?(?P<version>\\d+\\.\\d+\\.\\d+)$"
