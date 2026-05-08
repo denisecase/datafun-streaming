@@ -1,0 +1,72 @@
+# ============================================================
+# CITATION.cff (How to cite this project)
+# ============================================================
+
+# REQ.UNIVERSAL: Professional open projects SHOULD include this file.
+# WHY: Support correct citation and attribution.
+# ALT: Internal or private repositories may omit citation metadata.
+# CUSTOM: Update author, repository, license, and keyword fields as needed.
+# USAGE: See https://citation-file-format.github.io/ for details.
+
+cff-version: "1.2.0"
+type: software
+
+title: "datafun-streaming: Shared Utilities for Streaming Data Analytics"
+version: "0.1.0"
+date-released: "2026-05-08"
+
+authors:
+  - family-names: Case
+    given-names: Denise M.
+    orcid: "https://orcid.org/0000-0001-6165-7389"
+    affiliation: "Northwest Missouri State University, School of Computer Science and Information Systems, Maryville, MO, USA"
+
+repository-code: "https://github.com/denisecase/datafun-streaming"
+url: "https://github.com/denisecase/datafun-streaming"
+license: MIT
+
+abstract: >
+  Reusable Python library providing shared utilities for streaming data analytics
+  projects. Includes Kafka producer, consumer, and admin helpers built on
+  confluent-kafka; DuckDB storage utilities with schema inference and safe
+  parameterized queries; data validation types and field-level validators;
+  CSV and JSON file I/O helpers; incremental running statistics; and Plotly
+  chart utilities for live data visualization. Designed for use across
+  graduate-level streaming data analytics modules and projects.
+
+keywords:
+  # identity
+  - streaming-data
+  - kafka
+  - duckdb
+  - data-validation
+  - data-analytics
+  - reusable-library
+  - graduate-education
+
+  # practices
+  - professional-python
+  - src-layout
+  - ci-cd
+  - github-actions
+  - reproducible-workflows
+  - software-quality
+  - professional-practice
+
+  # tools and ecosystem
+  - python
+  - confluent-kafka
+  - duckdb
+  - plotly
+  - git
+  - github
+  - open-source
+  - uv
+  - ruff
+  - pre-commit
+  - pyright
+  - hatchling
+  - zensical
+  - pypi
+
+message: "If using this work, please cite it as described in this file."

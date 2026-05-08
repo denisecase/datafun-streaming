@@ -1,0 +1,71 @@
+# ============================================================
+# SE_MANIFEST.toml (Repository Intent, Scope, and Role)
+# ============================================================
+
+schema = "se-manifest-schema"
+schema_url = "https://raw.githubusercontent.com/structural-explainability/se-manifest-schema/blob/main/manifest-schema.toml"
+
+# === Identity ===
+
+[meta]
+purpose = "To make explicit the boundaries, responsibilities, and expectations of this repository relative to others."
+
+[repo]
+name = "datafun-streaming"
+org = "denisecase"
+kind = "software"
+status = "academic"
+since = "2026"
+summary = "Utilities for streaming data analytics projects."
+
+[layer]
+space = "Data Analytics"
+role = "post-secondary-education"
+
+[depends]
+# WHY: Required tools support local development, execution, and versioned CI-based releases.
+required = [
+  "python>=3.14",
+  "uv",
+  "git",
+]
+# WHY: Optional tools are not required to use or run the repository.
+optional = [
+  "ruff",
+  "pyright",
+  "pytest",
+  "lychee",
+  "zensical",
+  "mkdocstrings",
+]
+
+[provides]
+artifacts = [
+    "ANNOTATIONS.md",
+    "CITATION.cff",
+    "LICENSE",
+    "README.md",
+    "SE_MANIFEST.toml",
+]
+
+[scope]
+includes = [
+    "Kafka producer, consumer, and admin utilities (confluent-kafka)",
+    "DuckDB storage with schema inference and allowlist-validated queries",
+    "Data validation types, field-level validators, and reference data helpers",
+    "CSV and JSON file I/O utilities",
+    "Incremental running statistics for streaming data",
+    "Plotly chart utilities for live data visualization",
+    "Shared type aliases for streaming records across all subpackages",
+]
+excludes = [
+    "domain-specific data contracts (defined in course repos)",
+    "Kafka infrastructure setup or broker configuration",
+    "collection of personally identifying information (PII)",
+    "ML model training or inference logic",
+]
+
+[citation]
+cff = "CITATION.cff"
+preferred = "repo"
+bib_hint = "case2026-datafun-streaming"
