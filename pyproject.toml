@@ -201,6 +201,23 @@ requires = ["hatchling", "hatch-vcs"]
 # CUSTOM: Must match src/ folders.
 version-file = "src/datafun_streaming/_version.py"
 
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/",
+    "tests/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "pyproject.toml",
+]
+exclude = [
+    "*.egg-info",
+    ".venv",
+    "dist/",
+    "site/",
+    "data/",
+]
+
 [tool.hatch.build.targets.wheel]
 # CUSTOM: Must match src/ folders.
 packages = ["src/datafun_streaming"]  # REQ.PACKAGES: Discovery rooted at src/.
