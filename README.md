@@ -4,7 +4,7 @@
 [![PyPI](https://img.shields.io/pypi/v/datafun-streaming?logo=pypi&label=pypi)](https://pypi.org/project/datafun-streaming/)
 [![Docs Site](https://img.shields.io/badge/docs-site-blue?logo=github)](https://denisecase.github.io/datafun-streaming/)
 [![Repo](https://img.shields.io/badge/repo-GitHub-black?logo=github)](https://github.com/denisecase/datafun-streaming)
-[![Python 3.15+](https://img.shields.io/badge/python-3.15%2B-blue?logo=python)](https://github.com/denisecase/datafun-streaming/blob/main/pyproject.toml)
+[![Python 3.14+](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](https://github.com/denisecase/datafun-streaming/blob/main/pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 [![CI](https://github.com/denisecase/datafun-streaming/actions/workflows/ci-python-zensical.yml/badge.svg?branch=main)](https://github.com/denisecase/datafun-streaming/actions/workflows/ci-python-zensical.yml)
