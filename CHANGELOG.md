@@ -71,8 +71,9 @@ uvx pre-commit run --all-files
 uv run python -m pyright
 uv run python -m pytest
 uv run python -m zensical build
+uvx validate-pyproject[all] pyproject.toml
 
-uv run python -m build
+uv build
 uv run python -m twine check dist/\*
 ```
 

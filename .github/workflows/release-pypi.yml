@@ -124,13 +124,13 @@ jobs:
         run: uv run ruff check .
 
       - name: C4) Validate pyproject.toml
-        run: uvx validate-pyproject
+        run: uvx validate-pyproject[all] pyproject.toml
 
       - name: C5) Pyright (type check)
         run: uv run python -m pyright
 
       - name: C6) Validate built artifacts
-        run: uv run twine check dist/*
+        run: uv run python -m twine check dist/*
 
       # === DEPLOY RELEASE AND DOCS ===
 
@@ -156,7 +156,7 @@ jobs:
             echo "zensical.toml not found; skipping docs deploy." >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
-          uv run zensical build
+          uv run python -m zensical build
 
       - name: D4) Verify site output exists
         run: |
