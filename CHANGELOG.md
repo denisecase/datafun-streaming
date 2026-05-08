@@ -13,6 +13,15 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.2.0] - 2026-05-08
+
+### Changed
+
+- updated README.md
+- added `npx markdownlint-cli2 --fix` to pre-commit
+
+---
+
 ## [0.1.0] - 2026-05-08
 
 ### Added
@@ -62,7 +71,7 @@ Follow these steps exactly when creating a new release.
 1.2. CHANGELOG.md: add section, move unreleased entries, update links
 1.3. pyproject.toml - update [tool.hatch.version].fallback-version (near the end)
 
-### Task 2. Sync Version and Validate
+### Task 2. Validate
 
 ```shell
 uv sync --extra dev --extra docs --upgrade
@@ -72,7 +81,6 @@ uv run python -m pyright
 uv run python -m pytest
 uv run python -m zensical build
 uvx validate-pyproject[all] pyproject.toml
-
 uv build
 uv run python -m twine check dist/\*
 ```
@@ -101,7 +109,8 @@ git push origin :refs/tags/vX.Z.Y
 
 ## Links
 
-[Unreleased]: https://github.com/denisecase/datafun-streaming/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/denisecase/datafun-streaming/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.2.0
 [0.1.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.1.0
 
 <!-- markdownlint-enable MD024 -->
