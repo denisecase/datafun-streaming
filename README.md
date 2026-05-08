@@ -11,7 +11,8 @@
 [![Docs](https://github.com/denisecase/datafun-streaming/actions/workflows/deploy-zensical.yml/badge.svg?branch=main)](https://github.com/denisecase/datafun-streaming/actions/workflows/deploy-zensical.yml)
 [![Links](https://github.com/denisecase/datafun-streaming/actions/workflows/links.yml/badge.svg?branch=main)](https://github.com/denisecase/datafun-streaming/actions/workflows/links.yml)
 
-> Professional Python for Kafka streaming apps.
+> Shared Python utilities for Kafka, DuckDB, validation, stats, and visualization
+> across streaming data analytics projects.
 
 ## Command Reference
 

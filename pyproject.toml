@@ -15,7 +15,28 @@ name = "datafun-streaming" # Package distribution name (lowercase and dashes).
 readme = "README.md"
 requires-python = ">=3.14"
 dynamic = ["version"] # WHY: Version is computed from git tags at build time (see [tool.hatch.version] below).
-
+description = "Utilities for streaming data analytics with Kafka and DuckDB."
+license = "MIT"
+authors = [
+    { name = "Denise Case", email = "dcase@nwmissouri.edu" },
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Typing :: Typed",
+]
+keywords = [
+    "streaming-data",
+    "data-analytics",
+    "confluent-kafka",
+    "data-validation",
+    "running-statistics",
+]
 dependencies = [
     # REQ.DEPS: External packages used by the project code.
     "confluent-kafka", # WHY: Kafka client library for Python in 2026-April.
@@ -43,12 +64,11 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://adaptive-interfaces.github.io/adaptive-manifest-schema/"
-Repository = "https://github.com/adaptive-interfaces/adaptive-manifest-schema"
-Documentation = "https://adaptive-interfaces.github.io/adaptive-manifest-schema/"
-Issues = "https://github.com/adaptive-interfaces/adaptive-manifest-schema/issues"
-Changelog = "https://github.com/adaptive-interfaces/adaptive-manifest-schema/blob/main/CHANGELOG.md"
-
+Homepage = "https://github.com/denisecase/datafun-streaming"
+Repository = "https://github.com/denisecase/datafun-streaming"
+Documentation = "https://denisecase.github.io/datafun-streaming/"
+Issues = "https://github.com/denisecase/datafun-streaming/issues"
+Changelog = "https://github.com/denisecase/datafun-streaming/blob/main/CHANGELOG.md"
 
 # ============================================================
 # SECTION 2: TOOL CONFIGURATION (Professional basics)
