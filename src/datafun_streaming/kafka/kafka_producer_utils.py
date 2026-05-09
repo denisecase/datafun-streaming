@@ -11,8 +11,12 @@ from typing import Any
 from confluent_kafka import Producer
 
 from datafun_streaming.io.io_utils import row_to_json
-from datafun_streaming.kafka.errors import (
-    kafka_delivery_failed_message,
+from datafun_streaming.kafka.errors import kafka_delivery_failed_message
+from datafun_streaming.kafka.kafka_admin_utils import (
+    create_admin_client,
+    create_topic,
+    delete_topic,
+    topic_exists,
 )
 from datafun_streaming.kafka.kafka_settings import KafkaSettings
 
@@ -20,6 +24,7 @@ from datafun_streaming.kafka.kafka_settings import KafkaSettings
 
 __all__ = [
     "create_producer",
+    "prepare_producer_topic",
     "produce_kafka_message",
 ]
 
@@ -41,6 +46,28 @@ def create_producer(settings: KafkaSettings) -> Producer:
     )
 
 
+def prepare_producer_topic(settings: KafkaSettings) -> None:
+    """Prepare the Kafka topic before producing messages.
+
+    If settings.clear_topic_on_start is true, delete and recreate the topic
+    so the producer starts with an empty topic.
+
+    If settings.clear_topic_on_start is false, keep an existing topic.
+
+    If the topic does not exist, create it.
+    """
+    admin = create_admin_client(settings)
+
+    if topic_exists(admin, settings.topic):
+        if settings.clear_topic_on_start:
+            delete_topic(admin, settings.topic)
+        else:
+            return
+
+    if not topic_exists(admin, settings.topic):
+        create_topic(admin, settings.topic)
+
+
 def produce_kafka_message(
     *,
     producer: Producer,
@@ -50,6 +77,9 @@ def produce_kafka_message(
 ) -> None:
     """Produce one dictionary message to Kafka as JSON.
 
+    This function sends one message and waits for delivery before returning.
+    That makes producer examples reliable and easy to reason about.
+
     All arguments after the asterisk must be passed as keyword arguments.
 
     Arguments:
@@ -58,19 +88,12 @@ def produce_kafka_message(
         key: The Kafka message key.
         message: The message dictionary to produce.
 
-    Returns:
-        None
-
     Raises:
         RuntimeError: If Kafka reports a delivery failure.
-
-    This function encodes the message as JSON and produces it to Kafka with the given key.
-    It uses a delivery callback to check for delivery errors and raises a RuntimeError if any occur.
-
     """
     delivery_errors: list[str] = []
 
-    def delivery_report(error: Any, delivered_message: Any) -> None:
+    def delivery_report(error: Any, _delivered_message: Any) -> None:
         """Record Kafka delivery failure details."""
         if error is not None:
             delivery_errors.append(str(error))
@@ -81,8 +104,6 @@ def produce_kafka_message(
         value=row_to_json(message).encode("utf-8"),
         callback=delivery_report,
     )
-
-    producer.poll(0)
 
     remaining = producer.flush(timeout=10)
 

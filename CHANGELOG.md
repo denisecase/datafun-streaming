@@ -13,6 +13,30 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.7.0] - 2026-05-09
+
+This release adds a producer-focused improvement:
+Kafka settings can now control whether a topic
+is cleared at producer startup, and producer
+utilities now include a generic topic-preparation helper.
+
+## Added
+
+- Added `DEFAULT_CLEAR_TOPIC_ON_START`.
+- Added `KafkaSettings.clear_topic_on_start`.
+- Added support for reading `KAFKA_CLEAR_TOPIC_ON_START` from `.env`.
+- Added `prepare_producer_topic(settings)` to `datafun_streaming.kafka.kafka_producer_utils`.
+
+## Changed
+
+- Producer topic preparation can now be handled by the imported package.
+- `prepare_producer_topic(settings)`:
+  - creates the topic if it does not exist;
+  - keeps an existing topic when `settings.clear_topic_on_start` is false;
+  - deletes and recreates the topic when `settings.clear_topic_on_start` is true.
+
+---
+
 ## [0.6.0] - 2026-05-09
 
 ### Updated
@@ -174,7 +198,8 @@ git push origin :refs/tags/vX.Z.Y
 
 ## Links
 
-[Unreleased]: https://github.com/denisecase/datafun-streaming/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/denisecase/datafun-streaming/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.7.0
 [0.6.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.6.0
 [0.5.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.5.0
 [0.4.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.4.0

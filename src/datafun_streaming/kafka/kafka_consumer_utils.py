@@ -9,16 +9,28 @@ import logging
 from typing import Any
 
 from confluent_kafka import Consumer
+from confluent_kafka.cimpl import OFFSET_BEGINNING, TopicPartition
 
 from datafun_streaming.io.io_utils import row_from_json
-from datafun_streaming.kafka.errors import kafka_consume_failed_message
+from datafun_streaming.kafka.errors import (
+    kafka_consume_failed_message,
+    kafka_topic_empty_message,
+    kafka_topic_not_found_message,
+)
+from datafun_streaming.kafka.kafka_admin_utils import (
+    create_admin_client,
+    get_topic_message_count,
+    topic_exists,
+)
 from datafun_streaming.kafka.kafka_settings import KafkaSettings
 
 # === EXPORTS
 
 __all__ = [
-    "create_consumer",
     "consume_kafka_message",
+    "create_consumer",
+    "create_consumer_from_beginning",
+    "verify_consumer_topic_ready",
 ]
 
 # === DEFINE HELPER FUNCTIONS ===
@@ -71,3 +83,62 @@ def consume_kafka_message(
     row["_kafka_offset"] = message.offset()
 
     return row
+
+
+def verify_consumer_topic_ready(settings: KafkaSettings) -> None:
+    """Verify the Kafka topic exists and has messages.
+
+    Arguments:
+        settings: KafkaSettings instance with the topic and consumer config.
+
+    Returns:
+        None
+
+    Raises:
+        RuntimeError: If the topic does not exist or has no messages.
+    """
+    admin = create_admin_client(settings)
+
+    if not topic_exists(admin, settings.topic):
+        msg = kafka_topic_not_found_message(
+            topic=settings.topic,
+            bootstrap_servers=settings.bootstrap_servers,
+        )
+        raise RuntimeError(msg)
+
+    message_count = get_topic_message_count(admin, settings.topic, settings)
+
+    if message_count == 0:
+        msg = kafka_topic_empty_message(topic=settings.topic)
+        raise RuntimeError(msg)
+
+
+def create_consumer_from_beginning(settings: KafkaSettings) -> Any:
+    """Create a Kafka consumer subscribed to the topic from the beginning.
+
+    This is useful for learning examples where each run should read all
+    available messages from the topic.
+
+    Arguments:
+        settings: KafkaSettings instance with the topic and consumer config.
+
+    Returns:
+        A confluent_kafka.Consumer instance subscribed to the topic from the beginning.
+    """
+    consumer = create_consumer(settings)
+
+    consumer.subscribe(
+        [settings.topic],
+        on_assign=lambda c, partitions: c.assign(
+            [
+                TopicPartition(
+                    partition.topic,
+                    partition.partition,
+                    OFFSET_BEGINNING,
+                )
+                for partition in partitions
+            ]
+        ),
+    )
+
+    return consumer
