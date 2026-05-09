@@ -46,6 +46,8 @@ def validate_reference_records(
 ) -> list[str]:
     """Validate reference records and return file-level errors.
 
+    All arguments after the asterisk must be passed as keyword arguments.
+
     Arguments:
         records: Reference data records to validate.
         required_fields: Field names required in each record.

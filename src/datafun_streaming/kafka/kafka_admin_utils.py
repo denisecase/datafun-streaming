@@ -51,6 +51,8 @@ def create_topic(
 ) -> None:
     """Create a Kafka topic if it does not already exist.
 
+    All arguments after the asterisk must be passed as keyword arguments.
+
     Arguments:
         admin: An AdminClient instance.
         topic: The topic name to create.

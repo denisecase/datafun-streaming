@@ -149,13 +149,16 @@ def upsert_row(
 ) -> None:
     """Insert or replace one row in a DuckDB table.
 
+    All arguments after the asterisk must be passed as keyword arguments.
+
     Creates the table on the first call if it does not exist.
     On subsequent calls with the same primary key value,
     the existing row is replaced with the new values.
 
+    All arguments after the asterisk must be passed as keyword arguments.
+
     Arguments:
         conn:        Open DuckDB connection.
-        *: All arguments after the asterisk must be passed as keyword arguments.
         table:       Table name to write to.
         row:         The row to insert or replace.
         primary_key: The field name that uniquely identifies each row.

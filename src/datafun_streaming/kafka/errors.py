@@ -19,7 +19,18 @@ __all__ = [
 
 
 def kafka_admin_failed_message(*, operation: str, topic: str, detail: str) -> str:
-    """Return help text for a failed Kafka admin operation."""
+    """Return help text for a failed Kafka admin operation.
+
+    All arguments after the asterisk must be passed as keyword arguments.
+
+    Arguments:
+        operation: The admin operation that failed.
+        topic: The Kafka topic involved in the operation.
+        detail: Additional details about the failure.
+
+    Returns:
+        A help message with troubleshooting steps.
+    """
     return f"""
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 A Kafka admin operation failed.
@@ -39,7 +50,16 @@ CHECK:
 
 
 def kafka_consume_failed_message(*, detail: str) -> str:
-    """Return help text for a Kafka consume failure."""
+    """Return help text for a Kafka consume failure.
+
+    All arguments after the asterisk must be passed as keyword arguments.
+
+    Arguments:
+        detail: Additional details about the failure.
+
+    Returns:
+        A help message with troubleshooting steps.
+    """
     return f"""
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 The consumer ran, but Kafka did not return a usable message.
@@ -58,7 +78,16 @@ CHECK:
 
 
 def kafka_delivery_failed_message(*, detail: str) -> str:
-    """Return help text for a Kafka delivery failure."""
+    """Return help text for a Kafka delivery failure.
+
+    All arguments after the asterisk must be passed as keyword arguments.
+
+    Arguments:
+        detail: Additional details about the failure.
+
+    Returns:
+        A help message with troubleshooting steps.
+    """
     return f"""
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 The message was generated, but Kafka did not accept it.
@@ -76,7 +105,11 @@ CHECK:
 
 
 def kafka_no_messages_message() -> str:
-    """Return help text when no Kafka messages are consumed."""
+    """Return help text when no Kafka messages are consumed.
+
+    Returns:
+        A help message with troubleshooting steps.
+    """
     return """
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Kafka may be reachable, but no unread messages
@@ -94,7 +127,16 @@ CHECK:
 
 
 def kafka_not_reachable_message(*, bootstrap_servers: str) -> str:
-    """Return help text for a Kafka connection failure."""
+    """Return help text for a Kafka connection failure.
+
+    All arguments after the asterisk must be passed as keyword arguments.
+
+    Arguments:
+        bootstrap_servers: The Kafka bootstrap servers.
+
+    Returns:
+        A help message with troubleshooting steps.
+    """
     return f"""
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Python code is running,
@@ -114,7 +156,16 @@ CHECK:
 
 
 def kafka_topic_empty_message(*, topic: str) -> str:
-    """Return help text when a Kafka topic exists but has no messages."""
+    """Return help text when a Kafka topic exists but has no messages.
+
+    All arguments after the asterisk must be passed as keyword arguments.
+
+    Arguments:
+        topic: The Kafka topic.
+
+    Returns:
+        A help message with troubleshooting steps.
+    """
     return f"""
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 The topic exists but contains no messages.
@@ -131,7 +182,17 @@ CHECK:
 
 
 def kafka_topic_not_found_message(*, topic: str, bootstrap_servers: str) -> str:
-    """Return help text when a required Kafka topic does not exist."""
+    """Return help text when a required Kafka topic does not exist.
+
+    All arguments after the asterisk must be passed as keyword arguments.
+
+    Arguments:
+        topic: The Kafka topic.
+        bootstrap_servers: The Kafka bootstrap servers.
+
+    Returns:
+        A help message with troubleshooting steps.
+    """
     return f"""
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 The topic does not exist in Kafka.

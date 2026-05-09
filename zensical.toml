@@ -22,6 +22,12 @@ social = [
 # ------------------------------------------------------------
 # Plugins
 # ------------------------------------------------------------
+[project.plugins.mkdocstrings]
+# Empty table is sufficient to enable it with defaults.
+# Add handler options here if needed, e.g.:
+# handlers.python.options.show_source = true
+# handlers.python.options.show_root_heading = true
+
 [project.plugins.search]
 lang = "en" # WHY: Search plugin provides instant search functionality for documentation.
 

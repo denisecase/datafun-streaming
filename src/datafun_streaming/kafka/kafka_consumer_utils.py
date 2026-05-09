@@ -37,7 +37,18 @@ def consume_kafka_message(
     consumer: Any,
     timeout_seconds: float,
 ) -> dict[str, Any] | None:
-    """Consume one Kafka message and return it as a row dictionary."""
+    """Consume one Kafka message and return it as a row dictionary.
+
+    All arguments after the asterisk must be passed as keyword arguments.
+
+    Arguments:
+        consumer: A confluent_kafka.Consumer instance.
+        timeout_seconds: How long to wait for a message before giving up.
+
+    Returns:
+        A dictionary representing the message, or None if no message was received.
+
+    """
     message = consumer.poll(timeout_seconds)
 
     if message is None:

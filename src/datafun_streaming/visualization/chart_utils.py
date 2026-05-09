@@ -74,6 +74,8 @@ def init_chart(
 ) -> StreamingChart:
     """Create a new empty StreamingChart.
 
+    All arguments after the asterisk must be passed as keyword arguments.
+
     Arguments:
         title:   Chart title.
         x_label: Label for the x-axis.
@@ -93,6 +95,8 @@ def update_chart(
     y_field: str = "total",
 ) -> None:
     """Add one data point to the chart from a message row.
+
+    All arguments after the asterisk must be passed as keyword arguments.
 
     Arguments:
         chart:   The StreamingChart to update.

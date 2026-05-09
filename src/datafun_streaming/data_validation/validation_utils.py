@@ -36,6 +36,8 @@ def add_validation_errors(
 ) -> DataRecordDict:
     """Return a copy of a record with validation errors attached.
 
+    All arguments after the asterisk must be passed as keyword arguments.
+
     Arguments:
         record: A dictionary representing one data record.
         errors: A list of validation error messages.
@@ -54,9 +56,10 @@ def validate_boolean_text(value: str, *, field_name: str) -> list[str]:
     All boolean values must be represented as
     "true" or "false" (case-insensitive).
 
+    All arguments after the asterisk must be passed as keyword arguments.
+
     Arguments:
         value: The text value to validate.
-        *: All arguments after the asterisk must be passed as keyword arguments.
         field_name: The name of the field being validated, for error messages.
 
     Returns:
@@ -123,9 +126,10 @@ def validate_required_fields(
 
     All required fields must be present and not blank.
 
+    All arguments after the asterisk must be passed as keyword arguments.
+
     Arguments:
         record: A dictionary representing one data record / row.
-        *: All arguments after the asterisk must be passed as keyword arguments.
         required_fields: A list of field names that are required.
 
     Returns:

@@ -25,7 +25,7 @@ Auto-generated from Python docstrings.
 ::: datafun_streaming.kafka.kafka_consumer_utils
 ::: datafun_streaming.kafka.kafka_admin_utils
 ::: datafun_streaming.kafka.kafka_connection_utils
-::: datafun_streaming.kafka.kafka_error_messages
+::: datafun_streaming.kafka.errors
 
 ## Stats
 

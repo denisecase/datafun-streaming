@@ -59,6 +59,8 @@ def read_csv_as_lookup(
 ) -> dict[str, Any]:
     """Read a CSV file into a key-value lookup dictionary.
 
+    All arguments after the asterisk must be passed as keyword arguments.
+
     Arguments:
         path:        Path to the CSV file.
         key_field:   The column to use as the dictionary key.

@@ -12,7 +12,16 @@ __all__ = [
 
 
 def missing_csv_file_message(*, path: str) -> str:
-    """Return help text for a missing CSV file."""
+    """Return help text for a missing CSV file.
+
+    All arguments after the asterisk must be passed as keyword arguments.
+
+    Arguments:
+        path: The file path that was not found.
+
+    Returns:
+        A help message with troubleshooting steps.
+    """
     return f"""
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 This project needs a CSV file to generate messages.
@@ -29,7 +38,17 @@ CHECK:
 
 
 def missing_csv_field_message(*, field: str, available_fields: list[str]) -> str:
-    """Return help text for a missing CSV field."""
+    """Return help text for a missing CSV field.
+
+    All arguments after the asterisk must be passed as keyword arguments.
+
+    Arguments:
+        field: The name of the missing field.
+        available_fields: A list of field names that were found in the CSV file.
+
+    Returns:
+        A help message with troubleshooting steps.
+    """
     fields = ", ".join(available_fields)
 
     return f"""

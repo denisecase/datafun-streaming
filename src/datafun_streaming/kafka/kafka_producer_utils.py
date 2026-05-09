@@ -50,8 +50,9 @@ def produce_kafka_message(
 ) -> None:
     """Produce one dictionary message to Kafka as JSON.
 
+    All arguments after the asterisk must be passed as keyword arguments.
+
     Arguments:
-        *: All arguments after the asterisk must be passed as keyword arguments.
         producer: A confluent_kafka.Producer instance.
         topic: The Kafka topic to produce to.
         key: The Kafka message key.

@@ -32,7 +32,7 @@ code .
 ### In a VS Code terminal
 
 ```shell
-# reset uv cache only after suspected cache corruption or strange dependency errors
+# reset uv cache if strange dependency errors appear
 # uv cache clean
 
 uv self update
@@ -48,8 +48,6 @@ git add -A
 uvx pre-commit run --all-files
 
 # do chores
-uv run python -m ruff format .
-uv run python -m ruff check . --fix
 uv run python -m pyright
 uv run python -m pytest
 uv run python -m zensical build

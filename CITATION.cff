@@ -12,8 +12,8 @@ cff-version: "1.2.0"
 type: software
 
 title: "datafun-streaming: Shared Utilities for Streaming Data Analytics"
-version: "0.3.0"
-date-released: "2026-05-08"
+version: "0.4.0"
+date-released: "2026-05-09"
 
 authors:
   - family-names: Case
