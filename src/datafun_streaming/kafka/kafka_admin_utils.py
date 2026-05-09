@@ -196,6 +196,7 @@ def get_topic_message_count(
     temp_consumer = Consumer(
         {
             "bootstrap.servers": bootstrap_servers,
+            "broker.address.family": settings.broker_address_family,
             "group.id": "_offset_inspector",
             "enable.auto.commit": "false",
         }

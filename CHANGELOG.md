@@ -13,6 +13,34 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.6.0] - 2026-05-09
+
+### Updated
+
+`KafkaSettings`:
+
+- added `DEFAULT_BROKER_ADDRESS_FAMILY` constant and
+- `broker_address_family` field (default `"any"`),
+- read from `KAFKA_BROKER_ADDRESS_FAMILY` env var.
+
+`KafkaSettings.producer_config()` and `consumer_config()`:
+
+- now include `broker.address.family` in the returned rdkafka config dict.
+
+`get_topic_message_count()`:
+
+- `temp_consumer` now uses `settings.broker_address_family`,
+- fixing a silent bypass of address family setting
+  when inspecting watermark offsets.
+
+### Notes
+
+WSL2 users on Windows should set `KAFKA_BROKER_ADDRESS_FAMILY=v6` in `.env`
+if `localhost` resolves to `::1`
+and rdkafka fails with `Connect to ipv4#127.0.0.1 failed`.
+
+---
+
 ## [0.5.0] - 2026-05-09
 
 ### Updated
@@ -146,7 +174,8 @@ git push origin :refs/tags/vX.Z.Y
 
 ## Links
 
-[Unreleased]: https://github.com/denisecase/datafun-streaming/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/denisecase/datafun-streaming/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.6.0
 [0.5.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.5.0
 [0.4.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.4.0
 [0.3.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.3.0
