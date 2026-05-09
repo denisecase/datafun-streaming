@@ -13,6 +13,14 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.5.0] - 2026-05-09
+
+### Updated
+
+- broker family and v6
+
+---
+
 ## [0.4.0] - 2026-05-09
 
 ### Updated
@@ -138,7 +146,8 @@ git push origin :refs/tags/vX.Z.Y
 
 ## Links
 
-[Unreleased]: https://github.com/denisecase/datafun-streaming/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/denisecase/datafun-streaming/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.5.0
 [0.4.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.4.0
 [0.3.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.3.0
 [0.2.0]: https://github.com/denisecase/datafun-streaming/releases/tag/v0.2.0

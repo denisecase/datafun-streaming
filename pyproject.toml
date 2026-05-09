@@ -226,5 +226,5 @@ packages = ["src/datafun_streaming"]  # REQ.PACKAGES: Discovery rooted at src/.
 [tool.hatch.version]
 # WHY: Version derived from git tags at build time, no manual source file edits.
 source = "vcs"
-fallback-version = "0.4.0"              # Used when no git tags present (fresh clone, CI).
+fallback-version = "0.5.0"              # Used when no git tags present (fresh clone, CI).
 tag-pattern = "^(?:v)?(?P<version>\\d+\\.\\d+\\.\\d+)$"
