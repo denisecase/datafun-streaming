@@ -1,6 +1,5 @@
 # datafun-streaming
 
-[![Adaptive Interfaces](https://img.shields.io/badge/adaptive--interfaces-schema-blue?logo=github)](https://github.com/denisecase)
 [![PyPI](https://img.shields.io/pypi/v/datafun-streaming?logo=pypi&label=pypi)](https://pypi.org/project/datafun-streaming/)
 [![Docs Site](https://img.shields.io/badge/docs-site-blue?logo=github)](https://denisecase.github.io/datafun-streaming/)
 [![Repo](https://img.shields.io/badge/repo-GitHub-black?logo=github)](https://github.com/denisecase/datafun-streaming)
