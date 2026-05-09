@@ -120,7 +120,9 @@ git commit -m "Prep X.Y.Z"
 git push -u origin main
 ```
 
-Verify actions run on GitHub. After success:
+Verify
+[actions](https://github.com/denisecase/datafun-streaming/actions)
+run on GitHub. After success:
 
 ```shell
 git tag vX.Y.Z -m "X.Y.Z"
